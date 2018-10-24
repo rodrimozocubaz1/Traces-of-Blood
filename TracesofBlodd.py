@@ -1,4 +1,4 @@
-# Coloca el código de tu juego en este archivo.
+# Este juego se ejecuta con el programa renpy, estamos usando el visual studio code, para simplemente guardar nuestro cambios de código"
 
 # Declara los personajes usados en el juego como en el ejemplo:
 
