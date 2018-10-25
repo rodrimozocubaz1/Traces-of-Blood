@@ -3,7 +3,7 @@
 # Declara los personajes usados en el juego como en el ejemplo:
 
 define e = Character("Guía")
-image kurou = "kurouestiramiento.png" 
+image guia = "guia.png" 
 
 
 
@@ -28,7 +28,7 @@ label start:
     # reemplazarlo añadiendo un archivo llamado "eileen happy.png" al directorio
     # 'images'.
 
-    show kurou:
+    show guia:
         ypos 100 xpos 270
 
     # Presenta las líneas del diálogo.
@@ -39,10 +39,8 @@ label start:
     e "DOS: resolver un homicidio"
     e "TRES: resolver un suicidio"
     e "Tú podrás elegir resolver cualquiera de estos tres casos de tu interés"
-    e "Contarás con tres vidas de reposición para poder resolver tu caso iniciando nuevamente
-        desde tu última ruta de juego"
-    e "Caso contrario de agotar tu última vida reiniciarás el juego hasta que por tus habilidades y decisiones 
-        tomadas en el juego logres resolver el caso"
+    e "Contarás con tres vidas de reposición para poder resolver tu caso iniciando nuevamente desde tu última ruta de juego"
+    e "Caso contrario de agotar tu última vida reiniciarás el juego hasta que por tus habilidades y decisiones tomadas en el juego logres resolver el caso"
     e "La solución consiste en rescatar al secuestrado, identificar al homicida o determinar las razones de suicidio"
     e "Elige la opcion A, B o C:"
     
@@ -60,14 +58,24 @@ label start:
         
     label secuestro:
         e"ggdfg"
+
+        # Finaliza el juego:
+
+        return
         
     label homicidio:
         e"dhdgh"
+
+        # Finaliza el juego:
+
+        return
         
     label suicidio:
        e "dgfgn"
+
+       # Finaliza el juego:
+
+       return
     
 
-    # Finaliza el juego:
-
-    return
+    
