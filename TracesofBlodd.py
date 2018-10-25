@@ -14,7 +14,7 @@ label start:
     # Medidor de vida
     $ Vida = 3
 
-    #$ renpy.music.play ("sounds/suspenso.mp3")
+    $ renpy.music.play ("sounds/suspenso.mp3")
     
     # Muestra una imagen de fondo: Aquí se usa un marcador de posición por
     # defecto. Es posible añadir un archivo en el directorio 'images' con el
@@ -30,13 +30,38 @@ label start:
 
     # Presenta las líneas del diálogo.
 
-    e "Bienvenido a tu primera misión después de graduarte de la academia de detectives "
-
-    e "espero que puedas dar una buena demostración de lo que puedes hacer novato"
-
-    e "existen casos que no pueden ser resueltos por la policía por más que se esfuercen"
-
-    e "y ahí es donde entramos nosotros, los detectives"
+    e "Bienvenido a {b}Traces of blood{/b}"
+    e "Este juego se trata de resolver tres casos"
+    e "UNO: resolver un secuestro"
+    e "DOS: resolver un homicidio"
+    e "TRES: resolver un suicidio"
+    e "Tú podrás elegir resolver cualquiera de estos tres casos de tu interés"
+    e "Contarás con tres vidas de reposición para poder resolver tu caso iniciando nuevamente desde tu última ruta de juego"
+    e "Caso contrario de agotar tu última vida reiniciarás el juego hasta que por tus habilidades y decisiones tomadas en el juego logres resolver el caso"
+    e "La solución consiste en rescatar al secuestrado, identificar al homicida o determinar las razones de suicidio"
+    e "Elige la opcion A, B o C:"
+    
+    menu:
+        
+        "A. Secuestro":
+            jump secuestro
+        
+        "B. Homicidio":
+            jump homicidio
+        
+        "C. Suicidio":
+            jump suicidio
+        
+        
+    label secuestro:
+        e"ggdfg"
+        
+    label homicidio:
+        e"dhdgh"
+        
+    label suicidio:
+       e "dgfgn"
+    
 
     # Finaliza el juego:
 
