@@ -32,7 +32,11 @@ label start:
 
     e "Bienvenido a tu primera misión después de graduarte de la academia de detectives "
 
-    e "Añade una historia, imágenes y música, ¡y puedes presentarlo al mundo!"
+    e "espero que puedas dar una buena demostración de lo que puedes hacer novato"
+
+    e "existen casos que no pueden ser resueltos por la policía por más que se esfuercen"
+
+    e "y ahí es donde entramos nosotros, los detectives"
 
     # Finaliza el juego:
 
