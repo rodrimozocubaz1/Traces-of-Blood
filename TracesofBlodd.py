@@ -22,6 +22,9 @@ label start:
     # defecto. Es posible añadir un archivo en el directorio 'images' con el
     # nombre "bg room.png" or "bg room.jpg" para que se muestre aquí.
 
+    image habi 2="habi 2.jpg"
+    image habi 3="habi 3.jpg"
+    image habi 4="habi 4.jpg"
     scene bg room
 
     # Muestra un personaje: Se usa un marcador de posición. Es posible
