@@ -37,28 +37,54 @@
        menu :
            
               "A. Soledad":
+                  $flag="error"
                   
                   jump opcion 
                   
               "B. Nostalgia":
+                  $flag="error"
                   
                   jump opcion
                   
               "C. Tristeza":
+                  $flag="correcto"
                   
                   jump acierto
                 
               "D. Problemas":
+                  $flag="error"
                   
                   jump opcion
                   
-
-       label opcion:
-            e"Respuesta incorrecta,sigue intentando"
+       if flag == "error":
+           label opcion:
+                e"Respuesta incorrecta,sigue intentando"
+                menu :
+           
+                  "A. Soledad":
+                      $flag="error"
+                      
+                      jump opcion 
+                      
+                  "B. Nostalgia":
+                      $flag="error"
+                      
+                      jump opcion
+                      
+                  "C. Tristeza":
+                      $flag="correcto"
+                      
+                      jump acierto
+                    
+                  "D. Problemas":
+                      $flag="error"
+                      
+                      jump opcion
            
        
-       label acierto:
-            e"Buen trabajo,continuemos"
+       if flag == "correcto":
+           label acierto:
+                e"Buen trabajo,continuemos"
     
        
        
