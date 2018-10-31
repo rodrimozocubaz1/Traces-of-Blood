@@ -3,8 +3,15 @@
 # Declara los personajes usados en el juego como en el ejemplo:
 
 define e = Character("Guía")
+define d = Character("???", color = "5B5BFF")
+define j= Character ("Joe")
 image guia = "guia.png" 
-
+image escena_pantalla_princ = "mmm.jpg"
+image suicidio = "habi4.jpg"
+image golpe = "niñogolpe.jpg"
+image habi 2="habi 2.jpg"
+image habi 3="habi 3.jpg"
+image habi 4="habi 4.jpg"
 
 
 # El juego comienza aquí.
@@ -22,9 +29,7 @@ label start:
     # defecto. Es posible añadir un archivo en el directorio 'images' con el
     # nombre "bg room.png" or "bg room.jpg" para que se muestre aquí.
 
-    image habi 2="habi 2.jpg"
-    image habi 3="habi 3.jpg"
-    image habi 4="habi 4.jpg"
+    
     scene bg room
 
     # Muestra un personaje: Se usa un marcador de posición. Es posible

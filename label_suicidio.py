@@ -1,7 +1,8 @@
  label suicidio:
         
-       define j=("Joe")
-       play music"Marc Shaiman - Misery's Return.mp3"
+       
+       $ renpy.music.play ("sounds/Marc Shaiman - Misery's Return.mp3")
+       
        scene habi 2
        
        #Presenta las lineas de dialogo
@@ -20,7 +21,7 @@
        e"¿Qué tan bueno eres con el cifrado y la encriptación de mensajes?Descubramoslo...."
        e"Lee detalladamente las siguientes lineas y trata de decifrar el mensaje,recuerda, el cifrado de Cesar consiste en reemplazar cada letra con su consecuente"
        
-       play music"Friday the 13th (1980) soundtrack suite - Harry Manfredini.mp3"
+       $ renpy.music.play ("sounds/Friday the 13th (1980) soundtrack suite - Harry Manfredini.mp3")
        
        
         
@@ -65,9 +66,5 @@
                   
         
         # Finaliza el juego:
-
-        
-
-    
 
     
