@@ -58,7 +58,16 @@
                   
        if flag == "error":
            label opcion:
-                e"Respuesta incorrecta,sigue intentando"
+                e"Respuesta incorrecta, pierdes una vida"
+                $ Vida -= 1
+                
+                if Vida == 0:
+                    e"Has perdido todas tus vidas"
+                    e"Serás trasladado al menu principal"
+                    # Finaliza el juego:
+                    return
+                    
+                e"sigue intentando"
                 menu :
            
                   "A. Soledad":
