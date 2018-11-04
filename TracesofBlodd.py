@@ -1,18 +1,33 @@
 # Este juego se ejecuta con el programa renpy, estamos usando el visual studio code, para simplemente guardar nuestro cambios de código"
 
-# Declara los personajes usados en el juego como en el ejemplo:
+# Declara los personajes usados en el juego:
 
 define e = Character("Guía")
+
 define d = Character("???", color = "5B5BFF")
-define j= Character ("Joe")
+define c = Character("Capitán", color = "99FF99")
+define cn = Character("Teresa", color = "99FF99")
+define señorhotel = Character("Señor", color = "660000")
+
+define j= Character ("Víctima(Joe)")
+
+init:
+    # esto se declara en un "init:" antes del "label start:"
+    $ povname = " "
+    $ dn = DynamicCharacter("povname", color=("5B5BFF"))
+    
+
+# Imágenes usadas en el juego:
+
 image guia = "guia.png" 
 image escena_pantalla_princ = "mmm.jpg"
-image suicidio = "habi4.jpg"
-image golpe = "niñogolpe.jpg"
-image habi 2="habi 2.jpg"
-image habi 3="habi 3.jpg"
-image habi 4="habi 4.jpg"
 
+image golpe = "niñogolpe.jpg"
+
+image suicidio = "habi4.jpg"
+image habi 2= "habi 2.jpg"
+image habi 3= "habi 3.jpg"
+image habi 4= "habi 4.jpg"
 
 # El juego comienza aquí.
 
@@ -29,8 +44,7 @@ label start:
     # defecto. Es posible añadir un archivo en el directorio 'images' con el
     # nombre "bg room.png" or "bg room.jpg" para que se muestre aquí.
 
-    
-    scene bg room
+    scene escena_pantalla_princ
 
     # Muestra un personaje: Se usa un marcador de posición. Es posible
     # reemplazarlo añadiendo un archivo llamado "eileen happy.png" al directorio
@@ -62,6 +76,9 @@ label start:
         
         "C. Suicidio":
             jump suicidio
+        
+    
+
 
     
 
