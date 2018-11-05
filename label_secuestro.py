@@ -222,7 +222,7 @@ label secuestro:
                             "Caminar sigilosamente hacia el sonido de los pasos en la sala":
                                 $flag="chisme"
                                 jump muerte2
-                        
+ #------------------------------------------------------------------------------------------------------------------------------------------------------                       
             if flag=="defensa":
                 label continuar2:
                     "Caminé sigilosamente hacia mis cajones porque ahí se encontraba el arma que me había entregado Teresa antes de irse"
