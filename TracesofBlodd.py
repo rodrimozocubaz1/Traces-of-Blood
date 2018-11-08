@@ -1,3 +1,5 @@
+# Coloca el código de tu juego en este archivo.
+
 # Este juego se ejecuta con el programa renpy, estamos usando el visual studio code, para simplemente guardar nuestro cambios de código"
 
 # Declara los personajes usados en el juego:
@@ -22,12 +24,25 @@ init:
 image guia = "guia.png" 
 image escena_pantalla_princ = "mmm.jpg"
 
-image golpe = "niñogolpe.jpg"
+image aeropuerto = "aeropuerto.jpg"
+image habi_hotel_dia = "habi_hotel_dia.jpg"
+image habi_hotel_noche = "habi_hotel_noche.jpg"
+image pasillo_hotel = "pasillo_hotel.jpg"
+image puerta_cerrada = "puerta_cerrada.jpg"
+image puerta_poco_abierta = "puerta_poco_abierta.jpg"
 
-image suicidio = "habi4.jpg"
-image habi 2= "habi 2.jpg"
-image habi 3= "habi 3.jpg"
-image habi 4= "habi 4.jpg"
+image golpe = "golpeproblema.jpg"
+image familiaunida = "familia_unida.jpg"
+image acuchillado = "hombreacuchillado.jpg"
+image amigos = "amigosbebiendo.jpg"
+image mujer="mujer.jpg"
+image sospechosos="sospechosos1.jpg"
+
+image habi 2="habi 2.jpg"
+image habi 3="habi 3.jpg"
+image habi 4="habi 4.jpg"
+image chico ="chico.jpg"
+image carta ="carta.jpg"
 
 # El juego comienza aquí.
 
@@ -37,6 +52,7 @@ label start:
     
     # Medidor de vida
     $ Vida = 3
+    
 
     $ renpy.music.play ("sounds/suspenso.mp3")
     
@@ -61,8 +77,10 @@ label start:
     e "DOS: resolver un homicidio"
     e "TRES: resolver un suicidio"
     e "Tú podrás elegir resolver cualquiera de estos tres casos de tu interés"
-    e "Contarás con tres vidas de reposición para poder resolver tu caso iniciando nuevamente desde tu última ruta de juego"
-    e "Caso contrario de agotar tu última vida reiniciarás el juego hasta que por tus habilidades y decisiones tomadas en el juego logres resolver el caso"
+    e "Contarás con tres vidas de reposición para poder resolver tu caso iniciando nuevamente
+        desde tu última ruta de juego"
+    e "Caso contrario de agotar tu última vida reiniciarás el juego hasta que por tus habilidades y decisiones 
+        tomadas en el juego logres resolver el caso"
     e "La solución consiste en rescatar al secuestrado, identificar al homicida o determinar las razones de suicidio"
     e "Elige la opcion A, B o C:"
     
@@ -74,9 +92,12 @@ label start:
         "B. Homicidio":
             jump homicidio
         
-        "C. Suicidio":
+        "C.  Suicidio":
             jump suicidio
         
+    
+
+    
     
 
 

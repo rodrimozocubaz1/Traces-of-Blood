@@ -1,13 +1,14 @@
 label secuestro:
     stop music fadeout 3.0
+    $ renpy.music.play ("sounds/inicio.mp3")
     
     e"Buena suerte en tu misión"
-        
+    
+    scene aeropuerto
     hide guia
     hide escena_pantalla_princ
     with fade
     
-    #se muestra el escenario de un aeropuerto
     
     "El día 24 de Octubre del año 20XX en una inauguración de un programa académico de la USIL Miami,
       aproximadamente a las 10 a.m., secuestraron al Presidente del Directorio de la USIL"
@@ -61,7 +62,9 @@ label secuestro:
      y el cuarto de la víctima pero no hubo resultados positivos"
     "Horas más tarde rentamos la misma habitación en donde se hospedó el Presidente"
     
-    # habitacion hotel 
+    scene habi_hotel_dia
+    hide aeropuerto
+    with fade
     
     cn"Investigamos cada rincón del hotel y aún así no encontramos ninguna pista, que decepción"
  
@@ -70,7 +73,10 @@ label secuestro:
     "Decidí salir de la habitación para refrescar mi mente; momentos después, cuando caminaba por los 
      pasillos, me encontré con un señor, de unos 40 años aproximadamente"
     
-    # pasillo hotel
+    scene pasillo_hotel
+    hide habi_hotel_dia
+    with fade
+    
     # mostrar señorhotel
     
     señorhotel"Hola chico, nunca te había visto por aquí,¿Eres un recién llegado?"
@@ -95,6 +101,10 @@ label secuestro:
     
     "Fui hasta la habitación y le conté que este hotel estaba sobre vigilancia enemiga, o al menos eso especulé"
     
+    scene habi_hotel_dia
+    hide pasillo_hotel
+    with fade
+    
     cn"¿Estás seguro de eso?"
     
     dn"Sólo es una corazonada, pero si se da el caso, debemos estar preparados para lo peor"
@@ -112,6 +122,11 @@ label secuestro:
     cn"Está bien, confiaré en ti"
     
     "Media hora después Teresa dejó la habitación en la que nos encontrábamos"
+    "Y sin darme cuenta ya era de noche"
+    
+    scene habi_hotel_noche
+    hide habi_hotel_dia
+    with fade
     
     dn"Bueno, ¿Y ahora que hago?"
     
@@ -128,15 +143,22 @@ label secuestro:
 #-------------------------------------------------------------------------------------------------------------------------------------------------------            
     if flag=="dormir":
         label muerte1:
+            $ Vida -= 1
+            if Vida == 0:
+                e"Has perdido totas tus vidas. Serás trasladdo el menú principal"
+                return
+            
             dn"Creo que dormiré por el momento, despuésde todo no hay nada mejor que hacer"
             
             "Me tiré a la cama e inmediatamente me quedé dormido,sin preocuparme por nada, fui un estúpido..."
             
             "Al día siguiente Teresa me encontró muerto, con un cuchillo enterrado en mi corazón"
             
-            # pantalla oscura
+            scene black
+            hide habi_hotel_noche
+            with fade
             
-            e"Moriste, ¿Quieres volver a intentarlo?"
+            e"Perdiste una vida ¿Quieres volver a intentarlo?"
             
             menu:
                 "Sí":
@@ -146,7 +168,9 @@ label secuestro:
                     return
                     
             if flag=="sí":
-                
+                scene habi_hotel_noche
+                hide black
+                with fade
                 dn"Bueno, ¿Y ahora que hago?"
                 
                 menu:
@@ -169,6 +193,9 @@ label secuestro:
             "Cada vez que pareciese que cayecen, yo forzosamente trataba de levantarlos, era una batalla contra el sueño"
             "Y así pasaron las horas..."
             "Hasta que de pronto escuché un ruido por la cocina, ese ruido me puso inmediatamente en guardia, todo mi sueño se había esfumado"
+            stop music fadeout 3.0
+            $ renpy.music.play ("sounds/asaltante1.mp3")
+            
             "Se escuchaban los pasos de una persona, recorriendo por toda la sala"
             
             dn"¿Qué es lo que hago ahora?"
@@ -185,9 +212,24 @@ label secuestro:
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------                    
             if flag=="chisme":
                 label muerte2:
+                    $ Vida -= 1
+                    if Vida == 0:
+                        e"Has perdido totas tus vidas. Serás trasladdo el menú principal"
+                        return
+                    
                     "Caminé hacia el sonido sin hacer algún tipo de ruido, caminé lo más ligero posible para no alertar al usurpador de mi llegada"
+                    
+                    scene puerta_cerrada 
+                    hide habi_hotel_noche
+                    with fade
+                    
                     "Al llegar a la entrada a la sala sentí que la presión que sentía comenzaba a aumentar pero ya era muy tarde para retroceder"
                     "Gire la manija y abrí la puerta muy lentamente, solo moví la puerta a un espacio para que puediera mirar con un ojo"
+                    
+                    scene puerta_poco_abierta
+                    hide puerta_cerrada
+                    with fade
+                    
                     "Procedí a acercar mi cara al espacio entre mi cuarto y la sala, cuando finalmente podía ver hacia el otro lado toda mi vista de la parte
                      derecha se volvió oscura"
                     
@@ -200,7 +242,11 @@ label secuestro:
                      y sin siquiera dudarlo apretó el gatillo una y otra y otra y otra y otra y otra y otra y otra vez hasta quedarse sin balas"
                     "Sin siquiera ver el rostro del culpable morí"
                     
-                    e"¿Quieres volver a intentarlo?"
+                    scene black
+                    hide puerta_poco_abierta
+                    with fade
+                    
+                    e"Has perdido una vida ¿Quieres volver a intentarlo?"
                     
                     menu:
                         
@@ -211,6 +257,10 @@ label secuestro:
                             return
                             
                     if flag=="sí1":
+                        scene habi_hotel_noche
+                        hide black
+                        with fade
+                        
                         dn"¿Qué es lo que hago ahora?"
             
                         menu:
@@ -222,12 +272,122 @@ label secuestro:
                             "Caminar sigilosamente hacia el sonido de los pasos en la sala":
                                 $flag="chisme"
                                 jump muerte2
- #------------------------------------------------------------------------------------------------------------------------------------------------------                       
+#--------------------------------------------------------------------------------------------------------------------------------------------------------                       
             if flag=="defensa":
                 label continuar2:
                     "Caminé sigilosamente hacia mis cajones porque ahí se encontraba el arma que me había entregado Teresa antes de irse"
-                    #mostrar flashback
+                    # mostrar flashback
+                    
+                    scene habi_hotel_dia
+                    hide habi_hotel_noche
+                    with fade
+                    
+                    cn"Aunque tengas un plan no te puedo dejar al descubierto"
+                    
+                    "Teresa saca un objeto de su abrigo, era un arma, y me la entrega"
+                    
+                    cn"Cuidala bien, de esto dependerá tu vida"
+                    
+                    scene habi_hotel_noche
+                    hide habi_hotel_dia
+                    with fade
+                    
+                    dn"Esto servirá"
+                    
+                    "Al tener el arma en mano me sentía más seguro, felizmente asistí a una academia del ejercito sino no sabría como empuñar un arma"
+                    
+                    scene puerta_cerrada
+                    hide habi_hotel_noche
+                    with fade
+                    
+                    "Caminé lentamente hacia el lado de la puerta y esperé... solo esperé"
+                    "Los pasos se iban haciendo cada vez más fuertes hasta que por fin cesaron"
+                    "Al instante prepare mi arma, la sostuve con firmeza con ambas manos. La manija de la puerta comenzó a girar, lo hizo con tal silencio
+                     que si me hubiera quedado dormido en aquel momento no me hubiera dado cuenta se que estaba ingresando a mi habitación"
+                    "La manija dejó de moverse; envés de eso, la puerta lo hizo en su lugar exactamente al mismo ritmo, lento y silencioso"
+                    "Al ritmo en se movía la puerta yo me iba agachando cada vez más"
+                    "Apuntando hacia donde aparecería el asaltante, una vez que se abriera la puerta, tanto como para que pasara un cuerpo, y apareciera
+                     el cuerpo de ese sujeto, dispararía... o al menos ese era mi idea pero no fue así"
+                    "La puerta se dejó de mover antes de obtener el espacio necesario para poder pasar, fueron unos segundos de silencio"
+                    "Decidí acercarme más a la puerta, cuando de pronto el tipo lanza una patada contra la misma y entra a toda velocidad, lanzó una mirada
+                     por toda la habitación hasta que por fin dio conmigo"
+                    
+                    dn"H-Hola..."
+                    
+                    d"Muere"
+                    
+                    "Después de decirme eso sacó un cuchillo por la parte trasera de su cintura a la altura del cinturón y se acercó con gran velocidad
+                     a atacarme"
+                    "Tan pronto como sentí el peligro apunté con mi arma a su pie izquierdo"
+                    "El asaltante al haber recibido el disparo cayó al suelo"
+                    "Me levanté lo más rápido que pude y le coloqué unas esposas aprovechando la oportunidad"
+                    
+                    dn"Jeje~ que fácil"
+                    dn"Bueno, ¿qué debería hacer contigo?"
+                    
+                    menu:
+                        
+                        "Interrogarlo":
+                            $flag="mala"
+                            jump muerte3
+                                     
+                        "Esconderlo en el armario y salir de la habitación":
+                            jump continuar3
+                    
+                    if flag=="mala":
+                        label muerte3:
+                            $ Vida -= 1
+                            if Vida == 0:
+                                e"Has perdido totas tus vidas. Serás trasladdo el menú principal"
+                                return
                             
+                            "Interrogaste al asaltante por varios minutos pero llegaron sus refuerzos y te mataron"
+                            
+                            e"Has perdido una vida ¿Quieres volver a intentarlo?"
+                    
+                            menu:
+                        
+                                "Sí":
+                                    $flag="sí2"
+                                    
+                                "No":
+                                    return
+                                    
+                            if flag == "sí2":
+                                
+                                dn"Bueno, ¿qué debería hacer contigo?"
+                    
+                                menu:
+                                    
+                                    "Interrogarlo":
+                                        $flag="mala"
+                                        jump muerte3
+                                                 
+                                    "Esconderlo en el armario y salir de la habitación":
+                                        jump continuar3
+                                
+                            
+                    label continuar3:
+                        "Lo escondiste en el armario y saliste antes de que viniera alguien... era posible que tuviera refuerzos"
+                        
+                        scene pasillo hotel
+                        
+                        dn"Maldición! Sabía que atacarían pero no esperaba que fuera tan pronto"
+                        
+                        "Llamé a Teresa tan pronto como pude y le conté todo lo que estaba pasando, ella comentó que iría tan rápido como pueda"
+                        "Y seguí corriendo por el pasillo"
+                        "Tenía que pensar en un plan para salir de esta, lo haré"
+                        
+                        kn"¡¡¡Ni que fuera a morir en un lugar como este!!!"
+                        
+                        e"{size=+9}CONTINUARÁ...{/size}"
+                        
+                        
+                        
+                        
+    if Vida == 0:
+        e"Seras trasladado el menú principal"
+        return
                 
     
     
